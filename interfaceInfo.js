@@ -2,9 +2,7 @@
 
 const filterMap = (om, dtmi, kind) => Object.entries(om).filter(e => e[1].EntityKind === kind && e[1].ChildOf === dtmi).map(e => e[1])
 
-const contentsFilterMap = (om, dtmi, kind) => Object.entries(om).filter(e => e[1].EntityKind === kind && e[1].ChildOf === dtmi).map(e => e[1])
-
-const entityKind = {
+const contentKind = {
     Telemetry: 'Telemetry',
     Property: 'Property',
     Command: 'Command',
@@ -28,31 +26,31 @@ export const InterfaceInfo = (/** @type import("./DtdlOM").DtdlObjectModel */om,
     Object.entries(root.contents).forEach(c => {
         const elDtmi = c[1]
         const el = om[elDtmi]
-        if (el.EntityKind === entityKind.Property) {
-            properties.push(/** @type {import("./DtdlOM").PropertyInfo} */(el))
+        switch(el.EntityKind) {
+            case contentKind.Property:
+                properties.push(/** @type {import("./DtdlOM").PropertyInfo} */(el))
+                break
+            case contentKind.Telemetry:
+                telemetries.push(/** @type {import("./DtdlOM").TelemetryInfo} */(el))
+                break
+            case contentKind.Command:
+                commands.push(/** @type {import("./DtdlOM").CommandInfo} */(el))
+                break
+            case contentKind.Component:
+                components.push(/** @type {import("./DtdlOM").ComponentInfo} */(el))
+                break
+            case contentKind.Relationship:
+                relationships.push(/** @type {import("./DtdlOM").RelationshipInfo} */(el))
+                break
         }
-        if (el.EntityKind === entityKind.Telemetry) {
-            telemetries.push(/** @type {import("./DtdlOM").TelemetryInfo} */(el))
-        }
-        if (el.EntityKind === entityKind.Command) {
-            commands.push(/** @type {import("./DtdlOM").CommandInfo} */(el))
-        }
-        if (el.EntityKind === entityKind.Relationship) {
-            relationships.push(/** @type {import("./DtdlOM").RelationshipInfo} */(el))
-        }
-        if (el.EntityKind === entityKind.Component) {
-            components.push(/** @type {import("./DtdlOM").ComponentInfo} */(el))
-        }
-
     })
     
-    
     /** @return {Array<import("./DtdlOM").TelemetryInfo>} */
-    const compoTels = compoId => filterMap(om, compoId, entityKind.Telemetry)
+    const compoTels = compoId => filterMap(om, compoId, contentKind.Telemetry)
     /** @return {Array<import("./DtdlOM").PropertyInfo>} */
-    const compoProps = compoId =>  filterMap(om, compoId, entityKind.Property)
+    const compoProps = compoId =>  filterMap(om, compoId, contentKind.Property)
     /** @return {Array<import("./DtdlOM").CommandInfo>} */
-    const compoCmds = compoId =>  filterMap(om, compoId, entityKind.Command)
+    const compoCmds = compoId =>  filterMap(om, compoId, contentKind.Command)
     return { telemetries, properties, commands, components, relationships, compoTels, compoProps, compoCmds }
 
 }
