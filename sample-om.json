@@ -1,0 +1,185 @@
+{
+    "dtmi:com:example:base:_contents:__baseProp;1": {
+      "SupplementalTypes": [],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {},
+      "languageVersion": 2,
+      "Id": "dtmi:com:example:base:_contents:__baseProp;1",
+      "ChildOf": "dtmi:com:example:base;1",
+      "DefinedIn": "dtmi:com:example:base;1",
+      "EntityKind": "Property",
+      "name": "baseProp",
+      "ClassId": "dtmi:dtdl:class:Property;2",
+      "schema": "dtmi:dtdl:instance:Schema:dateTime;2",
+      "writable": false
+    },
+    "dtmi:com:example:base;1": {
+      "SupplementalTypes": [],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {},
+      "languageVersion": 2,
+      "Id": "dtmi:com:example:base;1",
+      "ChildOf": "dtmi:com:example;1",
+      "DefinedIn": "dtmi:com:example;1",
+      "EntityKind": "Interface",
+      "ClassId": "dtmi:dtdl:class:Interface;2",
+      "contents": {
+        "baseProp": "dtmi:com:example:base:_contents:__baseProp;1"
+      },
+      "extends": [],
+      "schemas": []
+    },
+    "dtmi:com:example:_contents:__propTempInKelvin;1": {
+      "SupplementalTypes": [
+        "dtmi:standard:class:Temperature;2"
+      ],
+      "SupplementalProperties": {
+        "dtmi:dtdl:property:unit;2": "dtmi:standard:unit:kelvin;2"
+      },
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {},
+      "languageVersion": 2,
+      "Id": "dtmi:com:example:_contents:__propTempInKelvin;1",
+      "ChildOf": "dtmi:com:example;1",
+      "DefinedIn": "dtmi:com:example;1",
+      "EntityKind": "Property",
+      "name": "propTempInKelvin",
+      "ClassId": "dtmi:dtdl:class:Property;2",
+      "schema": "dtmi:dtdl:instance:Schema:double;2",
+      "writable": false
+    },
+    "dtmi:com:example:_contents:__telTempInKelvin;1": {
+      "SupplementalTypes": [
+        "dtmi:standard:class:Temperature;2"
+      ],
+      "SupplementalProperties": {
+        "dtmi:dtdl:property:unit;2": "dtmi:standard:unit:kelvin;2"
+      },
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {},
+      "languageVersion": 2,
+      "Id": "dtmi:com:example:_contents:__telTempInKelvin;1",
+      "ChildOf": "dtmi:com:example;1",
+      "DefinedIn": "dtmi:com:example;1",
+      "EntityKind": "Telemetry",
+      "name": "telTempInKelvin",
+      "ClassId": "dtmi:dtdl:class:Telemetry;2",
+      "schema": "dtmi:dtdl:instance:Schema:double;2"
+    },
+    "dtmi:com:example:_contents:__myComponent;1": {
+      "SupplementalTypes": [],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {},
+      "languageVersion": 2,
+      "Id": "dtmi:com:example:_contents:__myComponent;1",
+      "ChildOf": "dtmi:com:example;1",
+      "DefinedIn": "dtmi:com:example;1",
+      "EntityKind": "Component",
+      "name": "myComponent",
+      "ClassId": "dtmi:dtdl:class:Component;2",
+      "schema": "dtmi:com:example:base;1"
+    },
+    "dtmi:com:example;1": {
+      "SupplementalTypes": [],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {},
+      "languageVersion": 2,
+      "Id": "dtmi:com:example;1",
+      "ChildOf": null,
+      "DefinedIn": null,
+      "EntityKind": "Interface",
+      "ClassId": "dtmi:dtdl:class:Interface;2",
+      "contents": {
+        "propTempInKelvin": "dtmi:com:example:_contents:__propTempInKelvin;1",
+        "telTempInKelvin": "dtmi:com:example:_contents:__telTempInKelvin;1",
+        "myComponent": "dtmi:com:example:_contents:__myComponent;1",
+        "baseProp": "dtmi:com:example:base:_contents:__baseProp;1"
+      },
+      "extends": [
+        "dtmi:com:example:base;1"
+      ],
+      "schemas": []
+    },
+    "dtmi:dtdl:instance:Schema:dateTime;2": {
+      "SupplementalTypes": [],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {
+        "en-US": "a date and time in ISO 8601 format, per [RFC 3339](https://tools.ietf.org/html/rfc3339)",
+        "es-ES": "una fecha y hora en formato ISO 8601, según [RFC 3339](https://tools.ietf.org/html/rfc3339)"
+      },
+      "displayName": {
+        "en": "dateTime"
+      },
+      "languageVersion": 2,
+      "Id": "dtmi:dtdl:instance:Schema:dateTime;2",
+      "ChildOf": null,
+      "DefinedIn": null,
+      "EntityKind": "DateTime",
+      "ClassId": "dtmi:dtdl:class:DateTime;2"
+    },
+    "dtmi:dtdl:instance:Schema:double;2": {
+      "SupplementalTypes": [],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {
+        "en-US": "a finite numeric value that is expressible in IEEE 754 double-precision floating point format, conformant with xsd:double",
+        "es-ES": "un valor numérico finito que es expresable en formato de coma flotante de doble precisión IEEE 754, conforme con xsd:double"
+      },
+      "displayName": {
+        "en": "double"
+      },
+      "languageVersion": 2,
+      "Id": "dtmi:dtdl:instance:Schema:double;2",
+      "ChildOf": null,
+      "DefinedIn": null,
+      "EntityKind": "Double",
+      "ClassId": "dtmi:dtdl:class:Double;2"
+    },
+    "dtmi:standard:unit:kelvin;2": {
+      "SupplementalTypes": [
+        "dtmi:standard:class:TemperatureUnit;2"
+      ],
+      "SupplementalProperties": {},
+      "UndefinedTypes": [],
+      "UndefinedProperties": {},
+      "comment": null,
+      "description": {},
+      "displayName": {
+        "en": "kelvin"
+      },
+      "languageVersion": 2,
+      "Id": "dtmi:standard:unit:kelvin;2",
+      "ChildOf": null,
+      "DefinedIn": null,
+      "EntityKind": "Unit",
+      "ClassId": "dtmi:dtdl:class:Unit;2",
+      "symbol": "K"
+    }
+  }
