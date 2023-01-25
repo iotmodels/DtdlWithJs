@@ -46,11 +46,11 @@ export const InterfaceInfo = (/** @type import("./DtdlOM").DtdlObjectModel */om,
     })
     
     /** @return {Array<import("./DtdlOM").TelemetryInfo>} */
-    const compoTels = compoId => filterMap(om, compoId, contentKind.Telemetry)
+    const compoTels = (/** @type {String} */ compoId) => filterMap(om, compoId, contentKind.Telemetry)
     /** @return {Array<import("./DtdlOM").PropertyInfo>} */
-    const compoProps = compoId =>  filterMap(om, compoId, contentKind.Property)
+    const compoProps = (/** @type {String} */ compoId) =>  filterMap(om, compoId, contentKind.Property)
     /** @return {Array<import("./DtdlOM").CommandInfo>} */
-    const compoCmds = compoId =>  filterMap(om, compoId, contentKind.Command)
+    const compoCmds = (/** @type {String} */ compoId) =>  filterMap(om, compoId, contentKind.Command)
     return { telemetries, properties, commands, components, relationships, compoTels, compoProps, compoCmds }
 
 }
