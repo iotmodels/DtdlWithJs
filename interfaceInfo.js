@@ -44,13 +44,13 @@ export const InterfaceInfo = (/** @type import("./DtdlOM").DtdlObjectModel */om,
                 break
         }
     })
-    
-    /** @return {Array<import("./DtdlOM").TelemetryInfo>} */
-    const compoTels = (/** @type {String} */ compoId) => filterMap(om, compoId, contentKind.Telemetry)
-    /** @return {Array<import("./DtdlOM").PropertyInfo>} */
-    const compoProps = (/** @type {String} */ compoId) =>  filterMap(om, compoId, contentKind.Property)
-    /** @return {Array<import("./DtdlOM").CommandInfo>} */
-    const compoCmds = (/** @type {String} */ compoId) =>  filterMap(om, compoId, contentKind.Command)
-    return { telemetries, properties, commands, components, relationships, compoTels, compoProps, compoCmds }
+ 
+    const print = (outFn) => {
+        if (!(outFn instanceof Function)) outFn = console.log
+        telemetries.forEach(t => outFn(` [T] ${t.name} ${t.schema}`))
+        properties.forEach(p => outFn(` [P] ${p.name} ${p.schema}`))
+        commands.forEach(c => outFn(` [C] ${c.name} req: ${c.request} resp: ${c.response}`))
+    }
 
+    return { telemetries, properties, commands, components, relationships, print }
 }
