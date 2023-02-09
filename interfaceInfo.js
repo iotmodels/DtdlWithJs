@@ -1,7 +1,4 @@
 // @ts-check
-
-const filterMap = (om, dtmi, kind) => Object.entries(om).filter(e => e[1].EntityKind === kind && e[1].ChildOf === dtmi).map(e => e[1])
-
 const contentKind = {
     Telemetry: 'Telemetry',
     Property: 'Property',
@@ -10,15 +7,22 @@ const contentKind = {
     Relationship: 'Relationship'
 }
 
-export const InterfaceInfo = (/** @type import("./DtdlOM").DtdlObjectModel */om, /** @type {String} */ dtmi) => {
+export const InterfaceInfo = (
+    /** @type import("./DtdlOM").DtdlObjectModel */om, 
+    /** @type {String} */ dtmi) => {
+
     /** @type {Array<import("./DtdlOM").TelemetryInfo>} */
     const telemetries = []
+
     /** @type {Array<import("./DtdlOM").PropertyInfo>} */
     const properties = []
+
     /** @type {Array<import("./DtdlOM").CommandInfo>} */
     const commands = []
+
     /** @type {Array<import("./DtdlOM").ComponentInfo>} */
     const components = []
+
     /** @type {Array<import("./DtdlOM").RelationshipInfo>} */
     const relationships = []
     
